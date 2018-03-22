@@ -188,6 +188,7 @@ public class cloudvision extends AppCompatActivity implements  TextToSpeech.OnIn
                     Log.d(TAG, "created Cloud Vision request object, sending request");
 
                     BatchAnnotateImagesResponse response = annotateRequest.execute();
+                    System.out.println("Response"+convertResponseToString(response));
                     return convertResponseToString(response);
 
                 }
@@ -276,7 +277,7 @@ public class cloudvision extends AppCompatActivity implements  TextToSpeech.OnIn
             for (EntityAnnotation label : labels)
             {
                 arrayList.add(label.getDescription());
-                message += String.format(Locale.US, "%.3f: %s", label.getScore(), label.getDescription());
+                message += String.format(Locale.US, " %s", label.getDescription());
                 message += "\n";
             }
         }
